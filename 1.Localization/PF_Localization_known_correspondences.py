@@ -10,7 +10,7 @@ See Probabilistic Robotics:
 Author: Chenge Yang
 Email: chengeyang2019@u.northwestern.edu
 '''
-
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
@@ -236,7 +236,10 @@ if __name__ == "__main__":
     # measurement_noise = np.array([0.1, 0.2])
 
     # Dataset 1
-    dataset = "../0.Dataset1"
+    cwd = os.getcwd()
+    
+    # dataset = "../0.Dataset1"
+    dataset = cwd + "/0.Dataset1"
     end_frame = 3200
     # Number of particles
     num_particles = 50

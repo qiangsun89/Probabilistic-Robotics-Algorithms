@@ -8,7 +8,7 @@ See Probabilistic Robotics:
 Author: Chenge Yang
 Email: chengeyang2019@u.northwestern.edu
 '''
-
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -179,7 +179,7 @@ class ExtendedKalmanFilter():
         # Measurement update locations
         if (len(self.states_measurement) > 0):
             self.states_measurement = np.array(self.states_measurement)
-            plt.scatter(self.states_measurement[:, 0], self.states_measurement[:, 1], s=10, c='k', alpha='0.5', label="Measurement updates")
+            plt.scatter(self.states_measurement[:, 0], self.states_measurement[:, 1], s=10, c='k', alpha=0.5, label="Measurement updates")
 
         # Landmark ground truth locations and indexes
         landmark_xs = []
@@ -207,7 +207,9 @@ if __name__ == "__main__":
     # Q = np.diagflat(np.array([350, 350, 1e16])) ** 2
 
     # Dataset 1
-    dataset = "../0.Dataset1"
+    cwd = os.getcwd()
+    # dataset = "../0.Dataset1"
+    dataset = cwd + "/0.Dataset1"
     end_frame = 3200
     # State covariance matrix
     R = np.diagflat(np.array([1.0, 1.0, 10.0])) ** 2
